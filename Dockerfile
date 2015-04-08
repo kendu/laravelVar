@@ -1,7 +1,7 @@
 FROM debian:latest
 MAINTAINER DevOps <devops@kendu.si>
 
-RUN for dir in app framework logs ; do \
+RUN for dir in app framework logs storage meta views upload ; do \
       mkdir -p /var/app/${dir} ; \
     done ; \
     for dir in cache sessions views ; do \
