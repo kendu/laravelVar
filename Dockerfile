@@ -7,7 +7,9 @@ RUN for dir in app framework logs storage meta views upload ; do \
     for dir in cache sessions views ; do \
       mkdir -p /var/app/framework/${dir} ; \
     done ; \
-    chown -R www-data /var/app
+    chown -R www-data /var/app; \
+    mkdir -p -m 777 /opt/web/bootstrap/cache; \
+    chown www-data /opt/web/bootstrap/cache
 
 
-VOLUME ["/var/app"]
+VOLUME ["/var/app", "/opt/web/bootstrap/cache"]
